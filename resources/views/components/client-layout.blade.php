@@ -163,7 +163,7 @@
     const navMenu = document.getElementById('navmenu');
     const footer = document.getElementById('footer');
 
-    // Check if the current page is /login or /register
+    // Check if the current page is the landing page
     if (currentPath === '/landing') {
       // Hide the navmenu by setting display to none
       navMenu.style.display = 'block';
@@ -171,6 +171,7 @@
       // Hide the footer by setting display to none
       footer.style.display = 'block';
     }
+
   </script>
 
 

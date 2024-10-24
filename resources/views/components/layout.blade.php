@@ -19,19 +19,19 @@
 
 
     <!-- Template Plugins -->
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Vite Plugins and Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/demo/demo.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="" />
 
 </head>
 
-<body class="tw-bg-gray-100 tw-p-8">
+<body class="tw-bg-gray-100 tw-p-8 ">
 
     <div class="sb-nav-fixed">
         @include('components.partials.navbar')
@@ -42,6 +42,13 @@
             </div>
 
             <div id="layoutSidenav_content">
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show alert-custom-position" role="alert" id="autoHideAlert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
                 <main class="container-fluid px-4">
                     <!-- Page Content goes here -->
                     {{ $slot }}
@@ -49,6 +56,9 @@
 
                 @include('components.partials.footer')
             </div>
+
+            <!-- Preloader -->
+            <div id="preloader"></div>
 
         </div>
     </div>
@@ -58,7 +68,6 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
-    
 </body>
 
 </html>

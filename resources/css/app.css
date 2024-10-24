@@ -4735,6 +4735,14 @@ textarea.form-control-lg {
   color: #101214;
 }
 
+.alert-custom-position {
+  position: fixed; /* Fix the alert to stay in one place */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  z-index: 1050; /* Ensure the alert is above other elements */
+  width: 300px; /* Set the width of the alert */
+}
+
 @keyframes progress-bar-stripes {
   0% {
     background-position-x: 1rem;
@@ -11252,6 +11260,48 @@ body {
 #maintenanceRecords {
   max-height: 300px;
   overflow-y: auto;
+}
+
+/* Pre-loader */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: #2487ce transparent #2487ce transparent ;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*  Chart Design */
+
+.chart-container {
+  padding: 20px; /* Adjust the padding value as needed */
+  background-color: #f9f9f9; /* Optional: background color for better visibility */
+  border-radius: 8px; /* Optional: rounded corners */
 }
 
 /* Import Tailwind */
